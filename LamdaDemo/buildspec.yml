@@ -1,0 +1,21 @@
+version: 0.2
+env:
+  variables:
+  # Set/Override value for below variables using Enviroment Variables of codebuild pipeline
+    LAMBDA_FUNCTION_NAME: "LamdaDemo"
+  # Variables specific to this file
+    PROJECT_FILE_DIR_PATH: "LamdaDemo"
+phases:
+  install:
+    runtime-versions:
+      dotnet: 8.0
+  build:
+    commands:
+      - echo Deployment started on `date`for function $LAMBDA_FUNCTION_NAME
+      - export PATH="$PATH:/root/.dotnet/tools"
+      - dotnet new --install Amazon.Lambda.Templates::*
+      - dotnet tool install -g Amazon.Lambda.Tools
+      # Change directory to Project(.csproj) file folder
+      - cd $PROJECT_FILE_DIR_PATH
+      # Build and deploy to lambda function
+      - dotnet lambda deploy-function --function-name $LAMBDA_FUNCTION_NAME
