@@ -8,7 +8,7 @@ namespace LamdaDemo.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-        "Freezinggggggg", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        "Freezinggggggg111", "Bracing111", "Chilly111", "Cool111", "Mild111", "Warm111", "Balmy111", "Hot111", "Sweltering111", "Scorching111"
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
